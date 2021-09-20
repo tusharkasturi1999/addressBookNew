@@ -82,25 +82,21 @@ public class MultipleAddressBook
 			}
 			else if(choice == 9)
 			{
-				System.out.println("Enter the name of state");
-				String state=sc.next();
-				System.out.println("Persons whose state "+state);
 				for(Map.Entry<String, AddressBookMain> entry : multipleAddressBook.entrySet())
 				{
 					AddressBookMain object1=entry.getValue();
-					object1.viewPersonByState(state);
+					System.out.println("Addressbook:"+entry.getKey());
+					object1.viewPersonByState();
 				}
 
 			}
 			else if(choice == 10)
 			{
-				System.out.println("Enter the name of city");
-				String city=sc.next();
-				System.out.println("Persons whose city "+city);
 				for(Map.Entry<String, AddressBookMain> entry : multipleAddressBook.entrySet())
 				{
 					AddressBookMain object1=entry.getValue();
-					object1.viewPersonByCity(city);
+					System.out.println("Addressbook:"+entry.getKey());
+					object1.viewPersonByCity();
 				}
 			}
 			else if(choice == 11)				//to exist from the program
