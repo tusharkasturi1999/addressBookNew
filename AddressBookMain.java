@@ -8,7 +8,7 @@ public class AddressBookMain {
 
 	public ArrayList<AddressBookMain> contact = new ArrayList<>();
 	public Scanner sc = new Scanner(System.in);
-
+ 
 	// class members
 	public String first_name;
 	public String last_name;
