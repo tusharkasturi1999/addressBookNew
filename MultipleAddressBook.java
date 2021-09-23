@@ -1,5 +1,6 @@
 package com.bridgelabz.AddressBook.AddressBook;
 
+import java.io.IOException;
 import java.util.*;
 
 public class MultipleAddressBook {
@@ -27,11 +28,14 @@ public class MultipleAddressBook {
 		case 5:
 			object.display_addressbook(); // display whole addressbook
 			break;
+		default:
+			System.out.println("Please enter a valid number");
+			break;
 		}
 
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// dictionary for mapping different address book with key
 		HashMap<String, AddressBookMain> multipleAddressBook = new HashMap<String, AddressBookMain>();
 		AddressBookMain object = new AddressBookMain(); // first addressbook
@@ -45,7 +49,8 @@ public class MultipleAddressBook {
 			System.out.println("Enter your choice\n" + "1.add contact\n" + "2.edit contact\n" + "3.Delete contact\n"
 					+ "4.Display contact\n" + "5.Display addressbook\n" + "6.Create another address book\n"
 					+ "7.Display all adressBook\n" + "8.Search for city or state\n" + "9.view person by state\n"
-					+ "10.view person by city\n" + "11.Sort list by Name,city,state or zip\n" + "12.exit");
+					+ "10.view person by city\n" + "11.Sort list by Name,city,state or zip\n" + "12.Add to file\n"
+					+ "13.read from file\n" + "14.exit");
 
 			int choice = sc.nextInt();
 			sc.nextLine();
@@ -88,7 +93,15 @@ public class MultipleAddressBook {
 					System.out.println("Addressbook:" + entry.getKey());
 					object1.sortPersonByNameCityStateZip(option);
 				}
-			} else if (choice == 12) // to exist from the program
+			} else if (choice == 12) {
+				System.out.println("Enter the addressbook which you want to add into file!!");
+				String AddressBook = sc.next();
+				multipleAddressBook.get(AddressBook).writeFile(AddressBook);
+			} else if (choice == 13) {
+				System.out.println("Enter the addressbook which you waant to read");
+				String AddressBook = sc.next();
+				multipleAddressBook.get(AddressBook).readFile(AddressBook);
+			} else if (choice == 14) // to exist from the program
 				flag = false;
 			else {
 				System.out.println("Enter the Name of addressbook");
